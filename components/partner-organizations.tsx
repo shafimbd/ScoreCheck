@@ -56,11 +56,13 @@ export function PartnerOrganizations() {
               <div className="w-20 h-20 md:w-24 md:h-24 relative mb-3 grayscale hover:grayscale-0 transition-all duration-300 group-hover:scale-110">
                 <Image
                   src={partner.logo || "/placeholder.svg"}
-                  alt={partner.name}
+                  alt={`${partner.name} logo`}
                   fill
                   className="object-contain"
+                  sizes="(max-width: 768px) 80px, 96px"
                   onError={(e) => {
-                    e.currentTarget.src = `/placeholder.svg?height=80&width=80&text=${partner.name.substring(0, 2)}`
+                    const target = e.target as HTMLImageElement
+                    target.src = `/placeholder.svg?height=80&width=80&text=${partner.name.substring(0, 2)}`
                   }}
                 />
               </div>
