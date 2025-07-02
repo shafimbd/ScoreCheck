@@ -2,7 +2,10 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -12,18 +15,20 @@ export const metadata: Metadata = {
     template: "%s | ScoreCheck.AI",
   },
   description:
-    "Transform credit decisions with AI intelligence. Access 50+ verified data sources and advanced machine learning for faster, more accurate, and more inclusive lending decisions.",
+    "Transform your lending decisions with our advanced AI platform that analyzes multiple data sources to provide accurate, real-time credit assessments for financial institutions.",
   keywords: [
     "credit assessment",
     "AI lending",
-    "machine learning",
-    "credit scoring",
     "financial technology",
-    "alternative data",
+    "credit scoring",
     "risk assessment",
-    "lending platform",
+    "Bangladesh banking",
+    "fintech",
+    "machine learning",
+    "alternative data",
+    "credit analysis",
   ],
-  authors: [{ name: "ScoreCheck.AI" }],
+  authors: [{ name: "ScoreCheck.AI Team" }],
   creator: "ScoreCheck.AI",
   publisher: "ScoreCheck.AI",
   formatDetection: {
@@ -40,7 +45,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://scorecheck.ai",
     title: "ScoreCheck.AI - AI-Powered Credit Assessment Platform",
-    description: "Transform credit decisions with AI intelligence. Trusted by 500+ financial institutions worldwide.",
+    description:
+      "Transform your lending decisions with our advanced AI platform that analyzes multiple data sources to provide accurate, real-time credit assessments.",
     siteName: "ScoreCheck.AI",
     images: [
       {
@@ -54,7 +60,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ScoreCheck.AI - AI-Powered Credit Assessment Platform",
-    description: "Transform credit decisions with AI intelligence. Trusted by 500+ financial institutions worldwide.",
+    description:
+      "Transform your lending decisions with our advanced AI platform that analyzes multiple data sources to provide accurate, real-time credit assessments.",
     images: ["/images/twitter-image.png"],
     creator: "@scorecheckai",
   },
@@ -84,17 +91,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#059669" />
-        <meta name="msapplication-TileColor" content="#059669" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
-          {children}
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

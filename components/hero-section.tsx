@@ -1,89 +1,77 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Star, Users, Shield, Zap } from "lucide-react"
-
-const trustIndicators = [
-  { icon: Users, text: "500+ Financial Institutions" },
-  { icon: Shield, text: "SOC 2 Type II Certified" },
-  { icon: Zap, text: "99.9% Uptime SLA" },
-]
+import { CheckCircle, Shield, Zap, TrendingUp } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative pt-20 pb-16 bg-gradient-to-br from-emerald-50 via-white to-blue-50 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-blue-50 pt-16 pb-20 sm:pt-24 sm:pb-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <Badge variant="secondary" className="mb-6 bg-emerald-100 text-emerald-800 hover:bg-emerald-200">
+            🚀 Now Available: Real-time Credit Assessment API
+          </Badge>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Announcement Badge */}
-          <div className="mb-8">
-            <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-200 px-4 py-2">
-              <Star className="h-4 w-4 mr-2 fill-current" />
-              New: Real-time API with 50ms response time
-            </Badge>
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Transform Credit Decisions with{" "}
-            <span className="text-emerald-600 relative">
-              AI Intelligence
-              <svg
-                className="absolute -bottom-2 left-0 w-full h-3 text-emerald-200"
-                viewBox="0 0 100 12"
-                fill="currentColor"
-              >
-                <path d="M0 8c30-4 70-4 100 0v4H0z" />
-              </svg>
-            </span>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+            AI-Powered Credit Assessment for <span className="text-emerald-600">Financial Institutions</span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Access 50+ verified data sources and advanced machine learning to make faster, more accurate, and more
-            inclusive lending decisions.
+          <p className="mt-6 text-lg leading-8 text-gray-600 sm:text-xl max-w-3xl mx-auto">
+            Transform your lending decisions with our advanced AI platform that analyzes multiple data sources to
+            provide accurate, real-time credit assessments. Reduce risk, increase approvals, and accelerate your lending
+            process.
           </p>
 
-          {/* Key Benefits */}
-          <div className="flex flex-wrap justify-center gap-6 mb-10">
-            <div className="flex items-center text-gray-700">
-              <CheckCircle className="h-5 w-5 text-emerald-600 mr-2" />
-              <span className="font-medium">40% faster decisions</span>
-            </div>
-            <div className="flex items-center text-gray-700">
-              <CheckCircle className="h-5 w-5 text-emerald-600 mr-2" />
-              <span className="font-medium">25% higher approval rates</span>
-            </div>
-            <div className="flex items-center text-gray-700">
-              <CheckCircle className="h-5 w-5 text-emerald-600 mr-2" />
-              <span className="font-medium">60% reduction in defaults</span>
-            </div>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/demo">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg">
+              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 text-lg">
                 Schedule Free Demo
               </Button>
             </Link>
             <Link href="/api-docs">
-              <Button size="lg" variant="outline" className="border-gray-300 px-8 py-4 text-lg bg-transparent">
+              <Button variant="outline" size="lg" className="px-8 py-3 text-lg bg-transparent">
                 View API Docs
               </Button>
             </Link>
           </div>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-8 text-gray-600">
-            {trustIndicators.map((indicator, index) => (
-              <div key={index} className="flex items-center space-x-2">
-                <indicator.icon className="h-5 w-5 text-emerald-600" />
-                <span className="font-medium">{indicator.text}</span>
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-full mb-2">
+                <CheckCircle className="w-6 h-6 text-emerald-600" />
               </div>
-            ))}
+              <span className="text-sm font-medium text-gray-900">99.9% Uptime</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-2">
+                <Shield className="w-6 h-6 text-blue-600" />
+              </div>
+              <span className="text-sm font-medium text-gray-900">Bank-Grade Security</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full mb-2">
+                <Zap className="w-6 h-6 text-purple-600" />
+              </div>
+              <span className="text-sm font-medium text-gray-900">Sub-second Response</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full mb-2">
+                <TrendingUp className="w-6 h-6 text-orange-600" />
+              </div>
+              <span className="text-sm font-medium text-gray-900">95% Accuracy</span>
+            </div>
+          </div>
+
+          {/* Social Proof */}
+          <div className="mt-12 text-center">
+            <p className="text-sm text-gray-500 mb-4">Trusted by leading financial institutions</p>
+            <div className="flex items-center justify-center space-x-8 opacity-60">
+              <span className="text-lg font-semibold text-gray-400">BRAC Bank</span>
+              <span className="text-lg font-semibold text-gray-400">City Bank</span>
+              <span className="text-lg font-semibold text-gray-400">Dutch-Bangla Bank</span>
+              <span className="text-lg font-semibold text-gray-400">Eastern Bank</span>
+            </div>
           </div>
         </div>
       </div>

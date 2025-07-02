@@ -1,540 +1,432 @@
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { Card, CardContent } from "@/components/ui/card"
+import { notFound } from "next/navigation"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { Calendar, Clock, ArrowLeft, Share2, Bookmark } from "lucide-react"
-import Link from "next/link"
-import { notFound } from "next/navigation"
+import { Calendar, Clock, ArrowLeft, Share2, BookmarkPlus } from "lucide-react"
 
 // This would typically come from a CMS or database
 const blogPosts = {
-  "future-of-credit-assessment-ai": {
+  "future-of-credit-assessment": {
     title: "The Future of Credit Assessment: How AI is Transforming Lending",
     excerpt:
-      "Explore how artificial intelligence is revolutionizing the way financial institutions assess creditworthiness and make lending decisions.",
+      "Explore how artificial intelligence is revolutionizing the lending industry and what it means for financial institutions.",
     content: `
-      <p>The financial services industry is experiencing a paradigm shift as artificial intelligence (AI) transforms traditional credit assessment processes. This evolution is not just about automation—it's about fundamentally reimagining how we evaluate creditworthiness in an increasingly digital world.</p>
+      <p>The lending industry is undergoing a dramatic transformation, driven by advances in artificial intelligence and machine learning. Traditional credit assessment methods, while reliable, are increasingly being supplemented—and in some cases replaced—by AI-powered solutions that offer greater accuracy, speed, and inclusivity.</p>
 
-      <h2>The Traditional Credit Assessment Challenge</h2>
-      <p>For decades, financial institutions have relied on conventional credit scoring models that primarily consider factors like payment history, credit utilization, and length of credit history. While these models have served the industry well, they have significant limitations:</p>
-      
+      <h2>The Evolution of Credit Assessment</h2>
+      <p>For decades, credit assessment has relied primarily on traditional metrics: credit scores, income verification, employment history, and debt-to-income ratios. While these factors remain important, they paint an incomplete picture of a borrower's creditworthiness.</p>
+
+      <p>AI-powered credit assessment platforms like ScoreCheck.AI are changing this paradigm by:</p>
       <ul>
-        <li><strong>Limited Data Sources:</strong> Traditional models rely heavily on credit bureau data, which may not capture the full financial picture of an applicant.</li>
-        <li><strong>Exclusion of Thin-File Consumers:</strong> Millions of consumers with limited credit history are often denied access to credit, despite being creditworthy.</li>
-        <li><strong>Static Assessment:</strong> Traditional models provide a snapshot in time rather than dynamic, real-time risk assessment.</li>
-        <li><strong>Bias and Fairness Issues:</strong> Historical data can perpetuate existing biases, leading to unfair lending practices.</li>
+        <li><strong>Analyzing alternative data sources:</strong> Utility payments, rental history, mobile phone usage patterns, and even social media activity can provide insights into financial behavior.</li>
+        <li><strong>Processing vast amounts of data:</strong> Machine learning algorithms can analyze thousands of data points simultaneously, identifying patterns that human underwriters might miss.</li>
+        <li><strong>Providing real-time decisions:</strong> What once took days or weeks can now be accomplished in seconds or minutes.</li>
+        <li><strong>Reducing bias:</strong> AI models, when properly designed, can help eliminate human bias in lending decisions.</li>
       </ul>
 
-      <h2>How AI is Revolutionizing Credit Assessment</h2>
-      <p>AI-powered credit assessment platforms like ScoreCheck.AI are addressing these challenges through several key innovations:</p>
+      <h2>Benefits for Financial Institutions</h2>
+      <p>The adoption of AI in credit assessment offers numerous advantages for lenders:</p>
 
-      <h3>1. Alternative Data Integration</h3>
-      <p>AI models can analyze vast amounts of alternative data sources, including:</p>
+      <h3>Increased Approval Rates</h3>
+      <p>By analyzing alternative data sources, AI can identify creditworthy borrowers who might be rejected by traditional scoring methods. This is particularly beneficial for serving the underbanked population and expanding market reach.</p>
+
+      <h3>Reduced Default Rates</h3>
+      <p>Advanced machine learning models can identify subtle patterns and risk indicators that traditional methods miss, leading to more accurate risk assessment and lower default rates.</p>
+
+      <h3>Operational Efficiency</h3>
+      <p>Automated decision-making reduces the need for manual review, significantly cutting processing time and operational costs while improving customer experience.</p>
+
+      <h2>The Role of Alternative Data</h2>
+      <p>One of the most significant advantages of AI-powered credit assessment is its ability to incorporate alternative data sources:</p>
+
       <ul>
-        <li>Utility and telecom payment histories</li>
-        <li>Bank transaction patterns</li>
-        <li>Social media behavior (where legally permissible)</li>
-        <li>Educational and employment history</li>
-        <li>Digital footprint analysis</li>
+        <li><strong>Utility and Telecom Payments:</strong> Consistent payment of utility bills and phone services indicates financial responsibility.</li>
+        <li><strong>Banking Transaction Data:</strong> Spending patterns, income regularity, and account management behavior provide deep insights into financial health.</li>
+        <li><strong>Digital Footprint:</strong> Online behavior, app usage, and digital engagement can reveal lifestyle patterns relevant to creditworthiness.</li>
+        <li><strong>Geolocation Data:</strong> Location patterns can indicate employment stability and lifestyle consistency.</li>
       </ul>
 
-      <h3>2. Real-Time Decision Making</h3>
-      <p>Modern AI systems can process applications in milliseconds, providing instant credit decisions while maintaining high accuracy. This speed improvement benefits both lenders and borrowers by:</p>
+      <h2>Challenges and Considerations</h2>
+      <p>While AI offers tremendous benefits, financial institutions must navigate several challenges:</p>
+
+      <h3>Regulatory Compliance</h3>
+      <p>AI models must comply with fair lending laws and regulations. Institutions need to ensure their models don't discriminate against protected classes and can provide clear explanations for credit decisions.</p>
+
+      <h3>Data Privacy and Security</h3>
+      <p>The use of alternative data raises privacy concerns. Institutions must implement robust data protection measures and ensure compliance with data privacy regulations.</p>
+
+      <h3>Model Interpretability</h3>
+      <p>Regulators and consumers increasingly demand transparency in AI decision-making. Financial institutions need AI solutions that can provide clear explanations for their decisions.</p>
+
+      <h2>The Future Landscape</h2>
+      <p>Looking ahead, we can expect several trends to shape the future of AI-powered credit assessment:</p>
+
       <ul>
-        <li>Reducing operational costs</li>
-        <li>Improving customer experience</li>
-        <li>Enabling real-time risk monitoring</li>
-        <li>Supporting dynamic pricing models</li>
+        <li><strong>Real-time Risk Monitoring:</strong> AI will enable continuous monitoring of borrower risk throughout the loan lifecycle, not just at origination.</li>
+        <li><strong>Personalized Lending:</strong> AI will enable more personalized loan products and terms based on individual risk profiles and preferences.</li>
+        <li><strong>Open Banking Integration:</strong> As open banking initiatives expand globally, AI will have access to even richer financial data for assessment.</li>
+        <li><strong>Blockchain Integration:</strong> Blockchain technology may provide secure, verifiable data sources for AI models.</li>
       </ul>
-
-      <h3>3. Enhanced Predictive Accuracy</h3>
-      <p>Machine learning algorithms can identify complex patterns in data that traditional statistical models might miss. This leads to:</p>
-      <ul>
-        <li>More accurate risk predictions</li>
-        <li>Reduced default rates</li>
-        <li>Better identification of creditworthy applicants</li>
-        <li>Improved portfolio performance</li>
-      </ul>
-
-      <h2>The Impact on Financial Inclusion</h2>
-      <p>One of the most significant benefits of AI-powered credit assessment is its potential to expand financial inclusion. By analyzing alternative data sources, AI can help lenders:</p>
-      
-      <ul>
-        <li>Serve previously underbanked populations</li>
-        <li>Provide credit to immigrants and young adults with limited credit history</li>
-        <li>Support small businesses that may not qualify under traditional models</li>
-        <li>Enable microlending and other innovative financial products</li>
-      </ul>
-
-      <h2>Regulatory Considerations and Compliance</h2>
-      <p>As AI transforms credit assessment, regulatory compliance remains paramount. Key considerations include:</p>
-      
-      <ul>
-        <li><strong>Fair Credit Reporting Act (FCRA) Compliance:</strong> Ensuring all data sources and decision factors comply with federal regulations.</li>
-        <li><strong>Equal Credit Opportunity Act (ECOA) Adherence:</strong> Preventing discriminatory lending practices through careful model design and monitoring.</li>
-        <li><strong>Explainability Requirements:</strong> Providing clear explanations for credit decisions, even when using complex AI models.</li>
-        <li><strong>Data Privacy Protection:</strong> Implementing robust data security measures and respecting consumer privacy rights.</li>
-      </ul>
-
-      <h2>Looking Ahead: The Future of AI in Lending</h2>
-      <p>The future of AI-powered credit assessment holds even more promise:</p>
-
-      <h3>Continuous Learning Models</h3>
-      <p>AI systems will become increasingly sophisticated, continuously learning from new data and adapting to changing economic conditions and consumer behaviors.</p>
-
-      <h3>Personalized Credit Products</h3>
-      <p>AI will enable the creation of highly personalized credit products tailored to individual risk profiles and financial needs.</p>
-
-      <h3>Ecosystem Integration</h3>
-      <p>Credit assessment will become part of broader financial ecosystems, integrating with banking, insurance, and investment services for holistic financial health management.</p>
 
       <h2>Conclusion</h2>
-      <p>The transformation of credit assessment through AI represents one of the most significant advances in financial services in decades. By embracing these technologies responsibly, financial institutions can improve their risk management, expand their customer base, and contribute to greater financial inclusion.</p>
+      <p>The future of credit assessment is undoubtedly AI-powered. Financial institutions that embrace these technologies now will be better positioned to serve their customers, manage risk, and compete in an increasingly digital marketplace.</p>
 
-      <p>As we move forward, the key to success will be balancing innovation with responsibility, ensuring that AI-powered credit assessment serves both business objectives and societal good. The future of lending is here, and it's powered by artificial intelligence.</p>
+      <p>At ScoreCheck.AI, we're committed to helping financial institutions navigate this transformation with cutting-edge AI solutions that are accurate, compliant, and transparent. The future of lending is here, and it's powered by artificial intelligence.</p>
     `,
-    author: "Sarah Johnson",
-    authorRole: "CEO",
-    date: "2024-01-15",
+    author: {
+      name: "Dr. Sarah Ahmed",
+      role: "Chief Data Scientist",
+      avatar: "/placeholder-user.jpg",
+    },
+    publishedAt: "2024-01-15",
     readTime: "5 min read",
-    category: "Industry Insights",
+    category: "AI & Technology",
+    tags: ["AI", "Credit Assessment", "Machine Learning", "Fintech"],
   },
-  "alternative-data-sources-credit": {
+  "alternative-data-sources": {
     title: "Alternative Data Sources: Beyond Traditional Credit Scores",
     excerpt:
-      "Discover how alternative data sources like utility bills, rental history, and digital footprints are providing new insights into creditworthiness.",
+      "Discover how alternative data is revolutionizing credit assessment and enabling financial inclusion for underserved populations.",
     content: `
-      <p>Traditional credit scoring has long been the cornerstone of lending decisions, but it's increasingly clear that conventional credit reports don't tell the whole story. Alternative data sources are revolutionizing how we assess creditworthiness, opening doors for millions of consumers who were previously excluded from the credit system.</p>
+      <p>Traditional credit scoring has long been the cornerstone of lending decisions, but it's increasingly clear that credit scores alone don't tell the complete story of a borrower's creditworthiness. Alternative data sources are opening new possibilities for more accurate, inclusive, and comprehensive credit assessment.</p>
 
-      <h2>The Limitations of Traditional Credit Data</h2>
-      <p>Traditional credit scoring models rely primarily on information from the three major credit bureaus: Experian, Equifax, and TransUnion. While this data is valuable, it has several limitations:</p>
-      
+      <h2>The Limitations of Traditional Credit Scoring</h2>
+      <p>Traditional credit scores, while valuable, have several limitations:</p>
       <ul>
-        <li><strong>Limited Coverage:</strong> Approximately 45 million Americans have no credit history, and another 19.4 million have insufficient credit history to generate a credit score.</li>
-        <li><strong>Backward-Looking:</strong> Traditional credit scores are based on past behavior and may not reflect current financial circumstances.</li>
-        <li><strong>Narrow Scope:</strong> Credit reports primarily focus on credit accounts and may miss other indicators of financial responsibility.</li>
-        <li><strong>Slow Updates:</strong> Credit reports are typically updated monthly, which may not capture real-time changes in financial behavior.</li>
+        <li><strong>Limited Population Coverage:</strong> Millions of people have thin or no credit files, making them "credit invisible."</li>
+        <li><strong>Backward-Looking:</strong> Credit scores reflect past behavior but may not predict future performance accurately.</li>
+        <li><strong>Narrow Data Sources:</strong> They rely primarily on credit account information, missing other indicators of financial responsibility.</li>
+        <li><strong>Slow to Update:</strong> Credit scores can take time to reflect recent changes in financial behavior.</li>
       </ul>
 
-      <h2>The Rise of Alternative Data</h2>
-      <p>Alternative data encompasses any information not traditionally used in credit scoring that can provide insights into a person's creditworthiness. This data revolution is being driven by several factors:</p>
+      <h2>The Power of Alternative Data</h2>
+      <p>Alternative data encompasses any information not traditionally used in credit scoring that can provide insights into creditworthiness. This data can be categorized into several types:</p>
 
+      <h3>Financial Alternative Data</h3>
       <ul>
-        <li>Increased digitization of financial transactions</li>
-        <li>Growing availability of consumer data</li>
-        <li>Advanced analytics and machine learning capabilities</li>
-        <li>Regulatory support for financial inclusion initiatives</li>
+        <li><strong>Bank Account Data:</strong> Transaction history, account balances, and cash flow patterns</li>
+        <li><strong>Utility Payments:</strong> Electricity, water, gas, and internet bill payment history</li>
+        <li><strong>Telecom Data:</strong> Mobile phone and internet service payment records</li>
+        <li><strong>Rent Payments:</strong> Rental payment history and housing stability</li>
       </ul>
 
-      <h2>Key Types of Alternative Data Sources</h2>
-
-      <h3>1. Utility and Telecom Payment History</h3>
-      <p>Regular payments for utilities, phone bills, and internet services demonstrate consistent payment behavior. These payments are often the first financial obligations people establish and can provide valuable insights into creditworthiness.</p>
-
-      <p><strong>Benefits:</strong></p>
+      <h3>Behavioral and Digital Data</h3>
       <ul>
-        <li>Available for most consumers, including those with thin credit files</li>
-        <li>Demonstrates consistent payment behavior over time</li>
-        <li>Reflects essential living expenses that consumers prioritize</li>
+        <li><strong>E-commerce Activity:</strong> Online shopping patterns and payment behavior</li>
+        <li><strong>Digital Footprint:</strong> Social media activity and online presence</li>
+        <li><strong>App Usage:</strong> Financial app usage patterns and engagement</li>
+        <li><strong>Device and Location Data:</strong> Smartphone usage patterns and location stability</li>
       </ul>
 
-      <h3>2. Bank Transaction Data</h3>
-      <p>With consumer consent, bank transaction data can provide a comprehensive view of financial behavior, including income stability, spending patterns, and cash flow management.</p>
-
-      <p><strong>Key Insights:</strong></p>
+      <h3>Professional and Educational Data</h3>
       <ul>
-        <li>Income verification and stability</li>
-        <li>Expense management and budgeting skills</li>
-        <li>Savings behavior and financial cushion</li>
-        <li>Recurring payment patterns</li>
-      </ul>
-
-      <h3>3. Rental Payment History</h3>
-      <p>For many consumers, rent is their largest monthly expense. Consistent rental payments demonstrate the ability to manage significant financial obligations.</p>
-
-      <p><strong>Advantages:</strong></p>
-      <ul>
-        <li>Particularly valuable for young adults and immigrants</li>
-        <li>Represents a significant portion of monthly income</li>
-        <li>Available through property management companies and rent reporting services</li>
-      </ul>
-
-      <h3>4. Educational and Employment Data</h3>
-      <p>Information about education level, employment history, and professional credentials can provide insights into future earning potential and financial stability.</p>
-
-      <p><strong>Considerations:</strong></p>
-      <ul>
-        <li>Education level as a proxy for earning potential</li>
-        <li>Employment stability and career progression</li>
-        <li>Professional certifications and skills</li>
-      </ul>
-
-      <h3>5. Digital Footprint Analysis</h3>
-      <p>While controversial and subject to strict regulations, certain aspects of digital behavior can provide insights into financial responsibility when used appropriately and with proper consent.</p>
-
-      <p><strong>Ethical Considerations:</strong></p>
-      <ul>
-        <li>Must comply with privacy regulations</li>
-        <li>Requires explicit consumer consent</li>
-        <li>Should avoid discriminatory factors</li>
-        <li>Must be transparent and explainable</li>
+        <li><strong>Employment History:</strong> Job stability and career progression</li>
+        <li><strong>Education Records:</strong> Educational background and achievements</li>
+        <li><strong>Professional Licenses:</strong> Industry certifications and professional standing</li>
       </ul>
 
       <h2>Benefits of Alternative Data in Credit Assessment</h2>
 
       <h3>Enhanced Financial Inclusion</h3>
-      <p>Alternative data sources can help lenders serve previously underbanked populations, including:</p>
+      <p>Alternative data enables lenders to assess borrowers who lack traditional credit history, including:</p>
       <ul>
-        <li>Young adults building their first credit history</li>
-        <li>Immigrants new to the country</li>
-        <li>Consumers recovering from financial setbacks</li>
-        <li>Small business owners with limited business credit history</li>
+        <li>Young adults just starting their financial journey</li>
+        <li>Immigrants with limited U.S. credit history</li>
+        <li>Individuals who primarily use cash or debit cards</li>
+        <li>Small business owners with personal and business finances intertwined</li>
       </ul>
 
       <h3>Improved Risk Assessment</h3>
       <p>By incorporating multiple data sources, lenders can:</p>
       <ul>
-        <li>Reduce default rates through better risk prediction</li>
-        <li>Identify creditworthy applicants missed by traditional models</li>
-        <li>Make more nuanced lending decisions</li>
-        <li>Adapt to changing economic conditions more quickly</li>
+        <li>Identify patterns not visible in traditional credit data</li>
+        <li>Detect early warning signs of financial distress</li>
+        <li>Better predict future payment behavior</li>
+        <li>Reduce false positives and negatives in credit decisions</li>
       </ul>
 
-      <h3>Real-Time Decision Making</h3>
+      <h3>Real-Time Insights</h3>
       <p>Many alternative data sources provide real-time or near-real-time information, enabling:</p>
       <ul>
-        <li>Instant credit decisions</li>
-        <li>Dynamic risk monitoring</li>
-        <li>Proactive customer outreach</li>
-        <li>Adaptive credit limits and terms</li>
+        <li>Faster credit decisions</li>
+        <li>Dynamic risk monitoring throughout the loan lifecycle</li>
+        <li>Proactive intervention for at-risk borrowers</li>
       </ul>
 
-      <h2>Challenges and Considerations</h2>
+      <h2>Implementation Challenges and Solutions</h2>
 
-      <h3>Data Quality and Consistency</h3>
-      <p>Alternative data sources may vary in quality and consistency, requiring careful validation and standardization processes.</p>
+      <h3>Data Quality and Standardization</h3>
+      <p><strong>Challenge:</strong> Alternative data sources vary in quality, format, and reliability.</p>
+      <p><strong>Solution:</strong> Implement robust data validation, cleansing, and standardization processes. Use multiple data sources to cross-validate information.</p>
 
       <h3>Privacy and Consent</h3>
-      <p>Using alternative data requires robust privacy protections and clear consumer consent mechanisms.</p>
+      <p><strong>Challenge:</strong> Using personal data raises privacy concerns and requires proper consent mechanisms.</p>
+      <p><strong>Solution:</strong> Implement transparent consent processes, provide clear data usage explanations, and ensure compliance with privacy regulations like GDPR and CCPA.</p>
 
       <h3>Regulatory Compliance</h3>
-      <p>Lenders must ensure that alternative data usage complies with fair lending laws and regulations.</p>
+      <p><strong>Challenge:</strong> Alternative data use must comply with fair lending laws and anti-discrimination regulations.</p>
+      <p><strong>Solution:</strong> Regular model testing for bias, documentation of data sources and decision logic, and ongoing compliance monitoring.</p>
 
-      <h3>Model Interpretability</h3>
-      <p>Complex models using multiple data sources must still provide explainable credit decisions to consumers.</p>
+      <h2>Case Studies: Alternative Data in Action</h2>
 
-      <h2>Best Practices for Implementing Alternative Data</h2>
+      <h3>Case Study 1: Utility Payment History</h3>
+      <p>A regional bank implemented utility payment data in their credit assessment process and found that borrowers with consistent utility payments had 23% lower default rates than predicted by traditional scoring alone.</p>
 
-      <h3>1. Start with High-Quality Data Sources</h3>
-      <p>Focus on data sources that are:</p>
+      <h3>Case Study 2: Bank Transaction Analysis</h3>
+      <p>A fintech lender using bank transaction data to assess cash flow patterns increased their approval rates by 35% while maintaining the same risk profile.</p>
+
+      <h3>Case Study 3: Mobile Phone Data</h3>
+      <p>A microfinance institution in emerging markets used mobile phone usage patterns to assess creditworthiness, successfully serving previously unbanked populations with a 15% lower default rate than traditional methods.</p>
+
+      <h2>Best Practices for Alternative Data Implementation</h2>
+
+      <h3>Start with High-Quality Data Sources</h3>
       <ul>
-        <li>Reliable and consistently available</li>
-        <li>Relevant to creditworthiness</li>
-        <li>Compliant with regulations</li>
-        <li>Respectful of consumer privacy</li>
+        <li>Partner with reputable data providers</li>
+        <li>Verify data accuracy and completeness</li>
+        <li>Implement data quality monitoring systems</li>
       </ul>
 
-      <h3>2. Implement Robust Data Governance</h3>
-      <p>Establish clear policies for:</p>
+      <h3>Ensure Model Transparency</h3>
       <ul>
-        <li>Data collection and storage</li>
-        <li>Consumer consent and opt-out mechanisms</li>
-        <li>Data security and protection</li>
-        <li>Regular data quality audits</li>
-      </ul>
-
-      <h3>3. Ensure Model Transparency</h3>
-      <p>Develop models that can:</p>
-      <ul>
+        <li>Document all data sources and their impact on decisions</li>
         <li>Provide clear explanations for credit decisions</li>
-        <li>Identify the most influential factors</li>
-        <li>Allow for consumer disputes and corrections</li>
-        <li>Support regulatory examinations</li>
+        <li>Implement model interpretability tools</li>
       </ul>
 
-      <h3>4. Monitor for Bias and Fairness</h3>
-      <p>Regularly test models to ensure they:</p>
+      <h3>Maintain Ethical Standards</h3>
       <ul>
-        <li>Don't discriminate against protected classes</li>
-        <li>Provide fair outcomes across different populations</li>
-        <li>Comply with fair lending regulations</li>
-        <li>Support financial inclusion goals</li>
+        <li>Regular bias testing and mitigation</li>
+        <li>Transparent communication with borrowers</li>
+        <li>Respect for data privacy and security</li>
       </ul>
 
       <h2>The Future of Alternative Data</h2>
       <p>As technology continues to evolve, we can expect to see:</p>
-
       <ul>
-        <li><strong>More Sophisticated Data Sources:</strong> IoT devices, wearables, and smart home technology may provide new insights into consumer behavior.</li>
-        <li><strong>Enhanced Privacy Technologies:</strong> Techniques like differential privacy and federated learning will enable data usage while protecting consumer privacy.</li>
-        <li><strong>Standardization Efforts:</strong> Industry standards for alternative data usage and consumer protection will continue to develop.</li>
-        <li><strong>Regulatory Evolution:</strong> Regulations will adapt to address the opportunities and challenges of alternative data usage.</li>
+        <li><strong>IoT Integration:</strong> Smart home devices and wearables providing lifestyle and stability indicators</li>
+        <li><strong>Blockchain Verification:</strong> Immutable records of financial behavior and identity</li>
+        <li><strong>AI-Generated Insights:</strong> Machine learning models creating new predictive features from raw data</li>
+        <li><strong>Real-Time Scoring:</strong> Continuous credit assessment based on live data feeds</li>
       </ul>
 
       <h2>Conclusion</h2>
-      <p>Alternative data sources represent a significant opportunity to improve credit assessment accuracy while expanding financial inclusion. By thoughtfully incorporating these data sources into credit models, lenders can better serve their customers and communities while maintaining responsible lending practices.</p>
+      <p>Alternative data represents a paradigm shift in credit assessment, offering the potential for more accurate, inclusive, and fair lending decisions. While implementation challenges exist, the benefits far outweigh the costs for forward-thinking financial institutions.</p>
 
-      <p>The key to success lies in balancing innovation with responsibility, ensuring that alternative data usage enhances rather than replaces human judgment in credit decisions. As the industry continues to evolve, those who embrace alternative data thoughtfully and ethically will be best positioned to serve the diverse financial needs of tomorrow's consumers.</p>
+      <p>At ScoreCheck.AI, we specialize in helping lenders harness the power of alternative data while maintaining the highest standards of compliance, privacy, and ethical lending. The future of credit assessment is data-rich, AI-powered, and more inclusive than ever before.</p>
     `,
-    author: "Michael Chen",
-    authorRole: "Head of Data Science",
-    date: "2024-01-10",
+    author: {
+      name: "Mohammad Rahman",
+      role: "Head of Product",
+      avatar: "/placeholder-user.jpg",
+    },
+    publishedAt: "2024-01-10",
     readTime: "7 min read",
-    category: "Technology",
+    category: "Data & Analytics",
+    tags: ["Alternative Data", "Credit Scoring", "Financial Inclusion", "Data Analytics"],
   },
   "regulatory-compliance-ai-lending": {
     title: "Regulatory Compliance in AI-Powered Lending: A Complete Guide",
     excerpt:
-      "Navigate the complex regulatory landscape of AI in lending with our comprehensive guide to compliance requirements and best practices.",
+      "Navigate the complex regulatory landscape of AI-powered lending with our comprehensive guide to compliance requirements and best practices.",
     content: `
-      <p>As artificial intelligence transforms the lending industry, financial institutions must navigate an increasingly complex regulatory landscape. This comprehensive guide explores the key compliance requirements, challenges, and best practices for implementing AI-powered lending solutions while maintaining regulatory compliance.</p>
+      <p>As artificial intelligence becomes increasingly prevalent in lending decisions, financial institutions must navigate a complex web of regulatory requirements. This comprehensive guide explores the key compliance considerations for AI-powered lending and provides practical strategies for maintaining regulatory compliance while leveraging AI's benefits.</p>
 
-      <h2>The Regulatory Framework for AI in Lending</h2>
-      <p>AI-powered lending operates within a web of federal and state regulations designed to ensure fair, transparent, and responsible lending practices. Understanding this framework is crucial for successful implementation.</p>
+      <h2>The Regulatory Landscape</h2>
+      <p>AI-powered lending operates within a framework of existing and emerging regulations designed to ensure fair, transparent, and responsible lending practices.</p>
 
-      <h3>Key Federal Regulations</h3>
-
-      <h4>Fair Credit Reporting Act (FCRA)</h4>
-      <p>The FCRA governs the collection, dissemination, and use of consumer credit information. For AI-powered lending, key considerations include:</p>
+      <h3>Key U.S. Regulations</h3>
       <ul>
-        <li><strong>Permissible Purposes:</strong> Ensuring AI models only use credit information for legitimate business purposes</li>
-        <li><strong>Adverse Action Notices:</strong> Providing clear explanations when credit is denied based on AI decisions</li>
-        <li><strong>Data Accuracy:</strong> Implementing processes to ensure the accuracy of data used in AI models</li>
-        <li><strong>Consumer Rights:</strong> Maintaining systems to handle consumer disputes and corrections</li>
+        <li><strong>Fair Credit Reporting Act (FCRA):</strong> Governs the use of consumer credit information</li>
+        <li><strong>Equal Credit Opportunity Act (ECOA):</strong> Prohibits discrimination in credit transactions</li>
+        <li><strong>Fair Debt Collection Practices Act (FDCPA):</strong> Regulates debt collection practices</li>
+        <li><strong>Truth in Lending Act (TILA):</strong> Requires disclosure of credit terms</li>
+        <li><strong>Fair Housing Act (FHA):</strong> Prohibits discrimination in housing-related lending</li>
       </ul>
 
-      <h4>Equal Credit Opportunity Act (ECOA)</h4>
-      <p>ECOA prohibits discrimination in credit transactions. AI implementations must address:</p>
+      <h3>International Considerations</h3>
       <ul>
-        <li><strong>Prohibited Basis Factors:</strong> Ensuring AI models don't discriminate based on race, color, religion, national origin, sex, marital status, age, or other protected characteristics</li>
-        <li><strong>Disparate Impact:</strong> Monitoring AI models for unintended discriminatory effects</li>
-        <li><strong>Adverse Action Notices:</strong> Providing specific reasons for credit denials</li>
-        <li><strong>Record Keeping:</strong> Maintaining detailed records of credit decisions and model performance</li>
-      </ul>
-
-      <h4>Fair Debt Collection Practices Act (FDCPA)</h4>
-      <p>When AI is used in debt collection activities, compliance with FDCPA is essential:</p>
-      <ul>
-        <li><strong>Communication Restrictions:</strong> Ensuring AI-powered communications comply with timing and frequency restrictions</li>
-        <li><strong>Validation Requirements:</strong> Providing debt validation information when requested</li>
-        <li><strong>Prohibited Practices:</strong> Avoiding harassment, false statements, or unfair practices in AI-driven collection efforts</li>
-      </ul>
-
-      <h3>State-Level Regulations</h3>
-      <p>State regulations add another layer of complexity:</p>
-      <ul>
-        <li><strong>Licensing Requirements:</strong> Ensuring compliance with state lending licenses</li>
-        <li><strong>Interest Rate Caps:</strong> Adhering to state usury laws</li>
-        <li><strong>Privacy Laws:</strong> Complying with state data privacy regulations</li>
-        <li><strong>AI-Specific Regulations:</strong> Monitoring emerging state-level AI regulations</li>
-      </ul>
-
-      <h2>Emerging AI-Specific Regulatory Guidance</h2>
-
-      <h3>Federal Agency Guidance</h3>
-
-      <h4>Consumer Financial Protection Bureau (CFPB)</h4>
-      <p>The CFPB has issued guidance on AI in financial services, emphasizing:</p>
-      <ul>
-        <li><strong>Explainability:</strong> The need for clear explanations of AI-driven credit decisions</li>
-        <li><strong>Fair Lending:</strong> Ensuring AI models don't perpetuate or amplify existing biases</li>
-        <li><strong>Consumer Protection:</strong> Maintaining consumer rights and protections in AI-powered systems</li>
-        <li><strong>Vendor Management:</strong> Ensuring third-party AI providers meet compliance standards</li>
-      </ul>
-
-      <h4>Federal Reserve and OCC Guidance</h4>
-      <p>Banking regulators have provided guidance on:</p>
-      <ul>
-        <li><strong>Model Risk Management:</strong> Implementing robust governance for AI models</li>
-        <li><strong>Third-Party Risk:</strong> Managing risks associated with AI vendors</li>
-        <li><strong>Operational Risk:</strong> Ensuring AI systems are reliable and secure</li>
-        <li><strong>Fair Lending:</strong> Monitoring AI models for discriminatory impacts</li>
+        <li><strong>GDPR (Europe):</strong> Data protection and privacy requirements</li>
+        <li><strong>PCI DSS:</strong> Payment card industry security standards</li>
+        <li><strong>Basel III:</strong> International banking regulations</li>
+        <li><strong>Local Banking Regulations:</strong> Country-specific requirements</li>
       </ul>
 
       <h2>Key Compliance Challenges in AI Lending</h2>
 
-      <h3>1. Model Explainability</h3>
-      <p>One of the biggest challenges in AI lending compliance is providing clear explanations for credit decisions made by complex machine learning models.</p>
-
-      <p><strong>Challenges:</strong></p>
-      <ul>
-        <li>Complex models may not provide easily interpretable results</li>
-        <li>Regulatory requirements for specific reasons for adverse actions</li>
-        <li>Balancing model performance with explainability</li>
-        <li>Communicating technical concepts to consumers</li>
-      </ul>
-
+      <h3>Model Explainability and Transparency</h3>
+      <p><strong>Challenge:</strong> AI models, particularly deep learning systems, can be "black boxes" that are difficult to interpret.</p>
+      
+      <p><strong>Regulatory Requirement:</strong> The ECOA requires lenders to provide specific reasons for adverse credit decisions.</p>
+      
       <p><strong>Solutions:</strong></p>
       <ul>
-        <li>Implement explainable AI techniques</li>
-        <li>Use model-agnostic explanation methods</li>
-        <li>Develop clear communication templates</li>
-        <li>Provide multiple levels of explanation detail</li>
+        <li>Use interpretable machine learning models when possible</li>
+        <li>Implement model explanation tools (LIME, SHAP, etc.)</li>
+        <li>Maintain detailed documentation of model logic and decision factors</li>
+        <li>Develop standardized adverse action reason codes</li>
       </ul>
 
-      <h3>2. Bias Detection and Mitigation</h3>
-      <p>AI models can inadvertently perpetuate or amplify existing biases in historical data.</p>
-
-      <p><strong>Challenges:</strong></p>
-      <ul>
-        <li>Historical data may contain embedded biases</li>
-        <li>Proxy variables may indirectly discriminate</li>
-        <li>Disparate impact may not be immediately apparent</li>
-        <li>Balancing fairness with business objectives</li>
-      </ul>
-
+      <h3>Bias and Discrimination Prevention</h3>
+      <p><strong>Challenge:</strong> AI models can perpetuate or amplify existing biases in historical data.</p>
+      
+      <p><strong>Regulatory Requirement:</strong> ECOA and FHA prohibit discrimination based on protected characteristics.</p>
+      
       <p><strong>Solutions:</strong></p>
       <ul>
-        <li>Implement bias testing throughout the model lifecycle</li>
-        <li>Use fairness-aware machine learning techniques</li>
-        <li>Regular monitoring and auditing of model outcomes</li>
-        <li>Diverse teams for model development and validation</li>
+        <li>Regular bias testing using statistical parity and equalized odds metrics</li>
+        <li>Diverse training data that represents all population segments</li>
+        <li>Bias mitigation techniques during model development</li>
+        <li>Ongoing monitoring for disparate impact</li>
       </ul>
 
-      <h3>3. Data Governance and Privacy</h3>
-      <p>AI models often require large amounts of diverse data, creating complex privacy and governance challenges.</p>
-
-      <p><strong>Challenges:</strong></p>
-      <ul>
-        <li>Managing consent for alternative data sources</li>
-        <li>Ensuring data quality and accuracy</li>
-        <li>Protecting sensitive consumer information</li>
-        <li>Complying with evolving privacy regulations</li>
-      </ul>
-
+      <h3>Data Privacy and Security</h3>
+      <p><strong>Challenge:</strong> AI models often require large amounts of personal and financial data.</p>
+      
+      <p><strong>Regulatory Requirements:</strong> FCRA, GDPR, and various state privacy laws govern data collection and use.</p>
+      
       <p><strong>Solutions:</strong></p>
       <ul>
-        <li>Implement comprehensive data governance frameworks</li>
-        <li>Use privacy-preserving techniques like differential privacy</li>
-        <li>Establish clear data retention and deletion policies</li>
-        <li>Regular data quality audits and validation</li>
+        <li>Implement data minimization principles</li>
+        <li>Obtain proper consent for data collection and use</li>
+        <li>Ensure secure data storage and transmission</li>
+        <li>Provide data subject rights (access, correction, deletion)</li>
       </ul>
 
-      <h2>Best Practices for Compliance</h2>
+      <h2>Compliance Framework for AI Lending</h2>
 
-      <h3>1. Establish Strong Governance</h3>
-
-      <h4>Model Risk Management Framework</h4>
+      <h3>1. Governance and Oversight</h3>
+      <p>Establish a comprehensive governance framework:</p>
       <ul>
-        <li><strong>Model Development:</strong> Implement rigorous development and testing processes</li>
-        <li><strong>Model Validation:</strong> Independent validation of model performance and compliance</li>
-        <li><strong>Model Monitoring:</strong> Ongoing monitoring of model performance and outcomes</li>
-        <li><strong>Model Documentation:</strong> Comprehensive documentation of model design and decisions</li>
+        <li><strong>AI Ethics Committee:</strong> Cross-functional team overseeing AI initiatives</li>
+        <li><strong>Model Risk Management:</strong> Formal processes for model validation and monitoring</li>
+        <li><strong>Compliance Integration:</strong> Embed compliance considerations throughout the AI lifecycle</li>
+        <li><strong>Regular Audits:</strong> Periodic reviews of AI systems and processes</li>
       </ul>
 
-      <h4>Compliance Committee</h4>
+      <h3>2. Model Development and Validation</h3>
+      <p>Implement rigorous model development practices:</p>
       <ul>
-        <li>Cross-functional team including legal, compliance, risk, and technology</li>
-        <li>Regular review of AI model compliance</li>
-        <li>Escalation procedures for compliance issues</li>
-        <li>Ongoing training and education</li>
+        <li><strong>Data Quality Assurance:</strong> Validate data accuracy, completeness, and representativeness</li>
+        <li><strong>Feature Engineering:</strong> Ensure features don't proxy for protected characteristics</li>
+        <li><strong>Model Testing:</strong> Comprehensive testing for accuracy, stability, and bias</li>
+        <li><strong>Documentation:</strong> Detailed model documentation and decision rationale</li>
       </ul>
 
-      <h3>2. Implement Robust Testing and Monitoring</h3>
-
-      <h4>Pre-Deployment Testing</h4>
+      <h3>3. Ongoing Monitoring and Maintenance</h3>
+      <p>Establish continuous monitoring processes:</p>
       <ul>
-        <li><strong>Bias Testing:</strong> Comprehensive testing for discriminatory impacts</li>
-        <li><strong>Performance Testing:</strong> Validation of model accuracy and reliability</li>
-        <li><strong>Stress Testing:</strong> Testing model performance under various scenarios</li>
-        <li><strong>Compliance Testing:</strong> Verification of regulatory compliance</li>
+        <li><strong>Performance Monitoring:</strong> Track model accuracy and stability over time</li>
+        <li><strong>Bias Monitoring:</strong> Regular testing for discriminatory outcomes</li>
+        <li><strong>Data Drift Detection:</strong> Monitor for changes in data patterns</li>
+        <li><strong>Feedback Loops:</strong> Incorporate new data and retrain models as needed</li>
       </ul>
 
-      <h4>Ongoing Monitoring</h4>
+      <h2>Best Practices for Regulatory Compliance</h2>
+
+      <h3>Documentation and Record Keeping</h3>
       <ul>
-        <li><strong>Performance Monitoring:</strong> Tracking model accuracy and effectiveness</li>
-        <li><strong>Fairness Monitoring:</strong> Ongoing assessment of discriminatory impacts</li>
-        <li><strong>Drift Detection:</strong> Monitoring for changes in data or model performance</li>
-        <li><strong>Outcome Analysis:</strong> Regular analysis of lending outcomes and patterns</li>
+        <li>Maintain comprehensive model documentation</li>
+        <li>Document all data sources and their validation</li>
+        <li>Keep records of model decisions and their rationale</li>
+        <li>Maintain audit trails for all system changes</li>
       </ul>
 
-      <h3>3. Ensure Transparency and Explainability</h3>
-
-      <h4>Consumer Communications</h4>
+      <h3>Stakeholder Communication</h3>
       <ul>
-        <li>Clear, plain-language explanations of AI-driven decisions</li>
-        <li>Multiple channels for consumer inquiries and disputes</li>
-        <li>Transparent information about data usage and model factors</li>
-        <li>Regular updates on model changes and improvements</li>
+        <li>Regular reporting to board and senior management</li>
+        <li>Clear communication with regulators about AI initiatives</li>
+        <li>Transparent disclosure to consumers about AI use</li>
+        <li>Training for staff on AI and compliance requirements</li>
       </ul>
 
-      <h4>Regulatory Reporting</h4>
+      <h3>Technology Implementation</h3>
       <ul>
-        <li>Comprehensive documentation for regulatory examinations</li>
-        <li>Regular reporting on model performance and compliance</li>
-        <li>Clear audit trails for all model decisions</li>
-        <li>Proactive communication with regulators about AI initiatives</li>
+        <li>Use explainable AI techniques where possible</li>
+        <li>Implement robust data security measures</li>
+        <li>Ensure system scalability and reliability</li>
+        <li>Maintain backup and disaster recovery capabilities</li>
       </ul>
 
-      <h2>Vendor Management and Third-Party Risk</h2>
+      <h2>Emerging Regulatory Trends</h2>
 
-      <h3>Due Diligence Requirements</h3>
-      <p>When working with AI vendors, financial institutions must conduct thorough due diligence:</p>
+      <h3>Algorithmic Accountability</h3>
+      <p>Regulators are increasingly focusing on algorithmic accountability, requiring:</p>
       <ul>
-        <li><strong>Compliance Capabilities:</strong> Vendor's ability to meet regulatory requirements</li>
-        <li><strong>Model Documentation:</strong> Comprehensive documentation of vendor models</li>
-        <li><strong>Data Security:</strong> Robust data protection and security measures</li>
-        <li><strong>Audit Rights:</strong> Rights to audit vendor compliance and performance</li>
+        <li>Regular algorithmic impact assessments</li>
+        <li>Public disclosure of AI use in lending decisions</li>
+        <li>Consumer rights to algorithmic decision explanations</li>
       </ul>
 
-      <h3>Ongoing Vendor Management</h3>
+      <h3>AI-Specific Regulations</h3>
+      <p>New regulations specifically targeting AI are emerging:</p>
       <ul>
-        <li>Regular performance and compliance reviews</li>
-        <li>Monitoring of vendor model updates and changes</li>
-        <li>Incident response and escalation procedures</li>
-        <li>Contract terms that ensure compliance obligations</li>
+        <li>EU AI Act: Comprehensive AI regulation framework</li>
+        <li>State-level AI bills: Various U.S. states proposing AI regulations</li>
+        <li>Industry-specific guidance: Regulatory agencies issuing AI-specific guidance</li>
       </ul>
 
-      <h2>Preparing for Regulatory Examinations</h2>
+      <h2>Practical Implementation Steps</h2>
 
-      <h3>Documentation Requirements</h3>
-      <p>Regulators will expect comprehensive documentation of AI lending programs:</p>
+      <h3>Phase 1: Assessment and Planning</h3>
+      <ol>
+        <li>Conduct regulatory compliance assessment</li>
+        <li>Identify gaps in current processes</li>
+        <li>Develop compliance roadmap</li>
+        <li>Establish governance structure</li>
+      </ol>
+
+      <h3>Phase 2: System Development</h3>
+      <ol>
+        <li>Implement model development standards</li>
+        <li>Build monitoring and reporting systems</li>
+        <li>Develop documentation templates</li>
+        <li>Create training programs</li>
+      </ol>
+
+      <h3>Phase 3: Deployment and Monitoring</h3>
+      <ol>
+        <li>Deploy AI systems with compliance controls</li>
+        <li>Implement ongoing monitoring processes</li>
+        <li>Conduct regular compliance reviews</li>
+        <li>Maintain continuous improvement processes</li>
+      </ol>
+
+      <h2>Working with Regulators</h2>
+
+      <h3>Proactive Engagement</h3>
       <ul>
-        <li><strong>Model Development:</strong> Documentation of model design, development, and testing</li>
-        <li><strong>Governance:</strong> Evidence of strong governance and oversight</li>
-        <li><strong>Compliance Testing:</strong> Records of bias testing and fairness analysis</li>
-        <li><strong>Consumer Impact:</strong> Analysis of consumer outcomes and benefits</li>
+        <li>Engage with regulators early in AI initiatives</li>
+        <li>Participate in industry working groups</li>
+        <li>Provide feedback on proposed regulations</li>
+        <li>Share best practices with the industry</li>
       </ul>
 
       <h3>Examination Preparation</h3>
       <ul>
-        <li>Regular self-assessments and internal audits</li>
-        <li>Mock examinations and stress testing</li>
-        <li>Training for examination response teams</li>
-        <li>Proactive communication with regulators</li>
-      </ul>
-
-      <h2>Future Regulatory Developments</h2>
-
-      <h3>Emerging Trends</h3>
-      <p>The regulatory landscape for AI in lending continues to evolve:</p>
-      <ul>
-        <li><strong>AI-Specific Regulations:</strong> Development of regulations specifically addressing AI in financial services</li>
-        <li><strong>International Standards:</strong> Harmonization of AI regulations across jurisdictions</li>
-        <li><strong>Industry Standards:</strong> Development of industry best practices and standards</li>
-        <li><strong>Technology Solutions:</strong> Regulatory technology (RegTech) solutions for compliance</li>
-      </ul>
-
-      <h3>Staying Current</h3>
-      <ul>
-        <li>Regular monitoring of regulatory developments</li>
-        <li>Participation in industry working groups</li>
-        <li>Engagement with regulatory agencies</li>
-        <li>Investment in compliance technology and expertise</li>
+        <li>Maintain examination-ready documentation</li>
+        <li>Prepare clear explanations of AI systems</li>
+        <li>Demonstrate compliance monitoring processes</li>
+        <li>Show evidence of bias testing and mitigation</li>
       </ul>
 
       <h2>Conclusion</h2>
-      <p>Regulatory compliance in AI-powered lending requires a comprehensive, proactive approach that balances innovation with responsibility. By implementing strong governance frameworks, robust testing and monitoring processes, and transparent communication practices, financial institutions can successfully navigate the regulatory landscape while realizing the benefits of AI technology.</p>
+      <p>Regulatory compliance in AI-powered lending requires a comprehensive, proactive approach that balances innovation with responsible lending practices. By implementing robust governance frameworks, maintaining transparency, and staying ahead of regulatory developments, financial institutions can successfully leverage AI while meeting their compliance obligations.</p>
 
-      <p>The key to success lies in viewing compliance not as a constraint on innovation, but as a framework for responsible AI implementation that protects consumers and promotes fair lending practices. As the regulatory landscape continues to evolve, institutions that invest in compliance capabilities today will be best positioned for success tomorrow.</p>
+      <p>At ScoreCheck.AI, we understand the complexity of regulatory compliance in AI lending. Our platform is designed with compliance at its core, providing the transparency, documentation, and monitoring capabilities that financial institutions need to meet their regulatory obligations while benefiting from AI-powered credit assessment.</p>
+
+      <p>The regulatory landscape will continue to evolve as AI becomes more prevalent in financial services. Institutions that invest in compliance infrastructure today will be better positioned to adapt to future regulatory changes and maintain their competitive advantage in the AI-powered lending market.</p>
     `,
-    author: "Emily Rodriguez",
-    authorRole: "Chief Compliance Officer",
-    date: "2024-01-05",
+    author: {
+      name: "Dr. Fatima Khan",
+      role: "Chief Compliance Officer",
+      avatar: "/placeholder-user.jpg",
+    },
+    publishedAt: "2024-01-05",
     readTime: "10 min read",
-    category: "Compliance",
+    category: "Compliance & Regulation",
+    tags: ["Regulatory Compliance", "AI Ethics", "Fair Lending", "Risk Management"],
   },
 }
 
@@ -546,91 +438,160 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
+    <article className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="bg-gray-50 border-b">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-4xl mx-auto">
+            <Link href="/blog" className="inline-flex items-center text-emerald-600 hover:text-emerald-700 mb-6">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Blog
+            </Link>
 
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-br from-emerald-50 via-white to-blue-50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <Link href="/blog" className="inline-flex items-center text-emerald-600 hover:text-emerald-700 mb-8">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Blog
-              </Link>
+            <div className="mb-6">
+              <Badge variant="secondary" className="mb-4">
+                {post.category}
+              </Badge>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">{post.title}</h1>
+            </div>
 
-              <div className="mb-6">
-                <Badge className="bg-emerald-100 text-emerald-800 mb-4">{post.category}</Badge>
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">{post.title}</h1>
-                <p className="text-xl text-gray-600 mb-8">{post.excerpt}</p>
-              </div>
-
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center space-x-4">
-                  <Avatar className="h-12 w-12">
-                    <AvatarImage src="/placeholder.svg" alt={post.author} />
-                    <AvatarFallback>
-                      {post.author
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-semibold text-gray-900">{post.author}</p>
-                    <p className="text-gray-600">{post.authorRole}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-6 text-gray-500">
-                  <div className="flex items-center">
-                    <Calendar className="h-4 w-4 mr-2" />
-                    {new Date(post.date).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="h-4 w-4 mr-2" />
-                    {post.readTime}
-                  </div>
-                </div>
-              </div>
-
+            <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="flex items-center space-x-4">
-                <Button variant="outline" size="sm">
-                  <Share2 className="h-4 w-4 mr-2" />
-                  Share
-                </Button>
-                <Button variant="outline" size="sm">
-                  <Bookmark className="h-4 w-4 mr-2" />
-                  Save
-                </Button>
+                <Avatar className="w-12 h-12">
+                  <AvatarImage src={post.author.avatar || "/placeholder.svg"} alt={post.author.name} />
+                  <AvatarFallback>
+                    {post.author.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </AvatarFallback>
+                </Avatar>
+                <div>
+                  <div className="font-semibold text-gray-900">{post.author.name}</div>
+                  <div className="text-sm text-gray-600">{post.author.role}</div>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-6 text-sm text-gray-600">
+                <div className="flex items-center">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </div>
+                <div className="flex items-center">
+                  <Clock className="w-4 h-4 mr-2" />
+                  {post.readTime}
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </header>
 
-        {/* Article Content */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <Card className="border-gray-200">
-                <CardContent className="p-8 md:p-12">
-                  <div
-                    className="prose prose-lg max-w-none prose-emerald prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                  />
-                </CardContent>
-              </Card>
+      {/* Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+            {/* Main Content */}
+            <div className="lg:col-span-3">
+              <div
+                className="prose prose-lg max-w-none prose-emerald prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
+
+              {/* Tags */}
+              <div className="mt-12 pt-8 border-t">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Tags</h3>
+                <div className="flex flex-wrap gap-2">
+                  {post.tags.map((tag) => (
+                    <Badge key={tag} variant="outline">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              {/* Share */}
+              <div className="mt-8 pt-8 border-t">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Share this article</h3>
+                <div className="flex space-x-4">
+                  <Button variant="outline" size="sm">
+                    <Share2 className="w-4 h-4 mr-2" />
+                    Share
+                  </Button>
+                  <Button variant="outline" size="sm">
+                    <BookmarkPlus className="w-4 h-4 mr-2" />
+                    Bookmark
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-8 space-y-8">
+                {/* Author Bio */}
+                <div className="bg-gray-50 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">About the Author</h3>
+                  <div className="flex items-center space-x-4 mb-4">
+                    <Avatar className="w-16 h-16">
+                      <AvatarImage src={post.author.avatar || "/placeholder.svg"} alt={post.author.name} />
+                      <AvatarFallback>
+                        {post.author.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <div className="font-semibold text-gray-900">{post.author.name}</div>
+                      <div className="text-sm text-gray-600">{post.author.role}</div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    Expert in AI-powered financial solutions with over 10 years of experience in credit assessment and
+                    risk management.
+                  </p>
+                </div>
+
+                {/* Related Articles */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Related Articles</h3>
+                  <div className="space-y-4">
+                    {Object.entries(blogPosts)
+                      .filter(([slug]) => slug !== params.slug)
+                      .slice(0, 3)
+                      .map(([slug, relatedPost]) => (
+                        <Link key={slug} href={`/blog/${slug}`} className="block group">
+                          <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 className="font-medium text-gray-900 group-hover:text-emerald-600 mb-2 line-clamp-2">
+                              {relatedPost.title}
+                            </h4>
+                            <p className="text-sm text-gray-600 line-clamp-2">{relatedPost.excerpt}</p>
+                            <div className="text-xs text-gray-500 mt-2">{relatedPost.readTime}</div>
+                          </div>
+                        </Link>
+                      ))}
+                  </div>
+                </div>
+
+                {/* Newsletter Signup */}
+                <div className="bg-emerald-50 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Stay Updated</h3>
+                  <p className="text-sm text-gray-600 mb-4">
+                    Get the latest insights on AI-powered lending delivered to your inbox.
+                  </p>
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">Subscribe to Newsletter</Button>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
-      </main>
-
-      <Footer />
-    </div>
+        </div>
+      </div>
+    </article>
   )
 }
 
