@@ -1,39 +1,37 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Brain, Database, Zap, Shield, BarChart3, Clock } from "lucide-react"
+import { Brain, Zap, Shield, BarChart3, Globe, Users } from "lucide-react"
 
 const features = [
   {
     icon: Brain,
     title: "Advanced AI Models",
     description:
-      "Machine learning algorithms trained on millions of credit decisions for superior accuracy and risk assessment.",
-  },
-  {
-    icon: Database,
-    title: "50+ Data Sources",
-    description:
-      "Integrate verified data from credit bureaus, banks, utilities, telecom, and alternative data providers.",
+      "Proprietary machine learning algorithms trained on millions of credit decisions for superior accuracy.",
   },
   {
     icon: Zap,
-    title: "Real-Time Processing",
-    description: "Get instant credit decisions with sub-second response times through our optimized infrastructure.",
+    title: "Real-time Processing",
+    description: "Get credit decisions in under 50ms with our high-performance API infrastructure.",
   },
   {
     icon: Shield,
     title: "Enterprise Security",
-    description:
-      "Bank-grade encryption, SOC 2 compliance, and comprehensive audit trails for complete data protection.",
+    description: "Bank-grade security with SOC 2 Type II certification and end-to-end encryption.",
   },
   {
     icon: BarChart3,
-    title: "Predictive Analytics",
-    description: "Advanced risk modeling and predictive insights to optimize your lending portfolio performance.",
+    title: "Comprehensive Analytics",
+    description: "Deep insights into your lending portfolio with customizable dashboards and reporting.",
   },
   {
-    icon: Clock,
-    title: "Automated Workflows",
-    description: "Streamline your entire credit assessment process with intelligent automation and custom rules.",
+    icon: Globe,
+    title: "50+ Data Sources",
+    description: "Access verified data from credit bureaus, banks, utilities, and alternative sources.",
+  },
+  {
+    icon: Users,
+    title: "Inclusive Lending",
+    description: "Expand access to credit for underserved populations with alternative data insights.",
   },
 ]
 
@@ -41,10 +39,10 @@ export function FeaturesSection() {
   return (
     <section id="features" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Powerful Features for Modern Lending</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to make smarter credit decisions faster, backed by cutting-edge AI technology.
+          <p className="text-xl text-gray-600">
+            Everything you need to transform your credit assessment process with cutting-edge AI technology.
           </p>
         </div>
 
